@@ -829,64 +829,6 @@ const DATA = [
 ];
 
 /* ── NAVIGATION ────────────────────────────────────────── */
-function goHome() {
-  document.getElementById('homeView').style.display = 'block';
-  document.getElementById('catView').style.display   = 'none';
-}
-
-function showCat(id) {
-  const cat = DATA.find(c => c.id === id);
-  if (!cat) return;
-  document.getElementById('homeView').style.display = 'none';
-  document.getElementById('catView').style.display  = 'block';
-  document.getElementById('cvIco').textContent = cat.icon;
-  document.getElementById('cvTtl').textContent = cat.title;
-  document.getElementById('cvSub').textContent = cat.desc;
-  document.getElementById('cvCnt').textContent = cat.prompts.length + ' Prompts';
-
-  const list = document.getElementById('promptList');
-  list.innerHTML = '';
-  cat.prompts.forEach((p, i) => {
-    const card = document.createElement('div');
-    card.className = 'p-card';
-    card.innerHTML = `
-      <div class="p-top">
-        <div class="p-meta">
-          <div class="p-num">Prompt ${String(i+1).padStart(2,'0')}</div>
-          <div class="p-name">${p.n}</div>
-        </div>
-        <button class="copy-btn" title="Copy prompt">${CLIP_ICON} Copy</button>
-      </div>
-      <div class="p-box">${fmt(p.t)}</div>
-      ${p.tip ? `<div class="p-tip">${p.tip}</div>` : ''}
-    `;
-    const btn = card.querySelector('.copy-btn');
-    btn.addEventListener('click', () => copyPrompt(p.t, btn));
-    list.appendChild(card);
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ── RENDER HOME ───────────────────────────────────────── */
-function init() {
-  const grid = document.getElementById('catGrid');
-  grid.innerHTML = '';
-  DATA.forEach(cat => {
-    const card = document.createElement('div');
-    card.className = 'cat-card';
-    card.onclick = () => showCat(cat.id);
-    card.innerHTML = `
-      <div class="cat-icon-b">${cat.icon}</div>
-      <div class="cat-txt">
-        <div class="cat-ttl">${cat.title}</div>
-        <div class="cat-dsc">${cat.desc}</div>
-        <span class="cat-cnt">${cat.prompts.length} prompts</span>
-      </div>
-      <div class="cat-arr">›</div>
-    `;
-    grid.appendChild(card);
-  });
-}
 init();
 
 </script>
