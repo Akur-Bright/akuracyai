@@ -19,15 +19,18 @@
 html{scroll-behavior:smooth}
 body{
   font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--dark);color:var(--text);
+  background-color:#f0f5ff;
+  background-image:radial-gradient(rgba(24,69,200,.18) 1.5px, transparent 1.5px);
+  background-size:30px 30px;
+  color:var(--text);
   min-height:100vh;overflow-x:hidden;font-size:15px;line-height:1.6;
 }
 body::after{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background:transparent;
 }
 ::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--dark2)}
+::-webkit-scrollbar-track{background:#dde6ff}
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
 
 /* ── LAYOUT ─────────────────────────────────────────── */
@@ -35,10 +38,10 @@ body::after{
 
 /* ── HEADER ─────────────────────────────────────────── */
 header{
-  background:linear-gradient(180deg,rgba(24,69,200,.12) 0%,transparent 100%);
-  border-bottom:1px solid var(--border);
+  background:var(--card);
+  border-bottom:1px solid var(--border-b);
   padding:18px 0;position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
 }
 /* Logo */
 .logo-wrap{
@@ -166,7 +169,7 @@ header{
 
 /* How to use */
 .how-box{
-  background:linear-gradient(135deg,rgba(24,69,200,.08),rgba(255,107,0,.04));
+  background:var(--card);
   border:1px solid var(--border-b);border-radius:var(--radius);
   padding:20px;margin-bottom:28px;
   display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
@@ -183,9 +186,10 @@ header{
 /* Section label */
 .sec-label{
   font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;
+  color:var(--blue-dk);
   margin-bottom:14px;display:flex;align-items:center;gap:10px;
 }
-.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-label::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,rgba(24,69,200,.35),transparent)}
 
 /* Category grid */
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
@@ -278,11 +282,11 @@ header{
 
 /* ── FOOTER ─────────────────────────────────────────── */
 footer{
-  border-top:1px solid var(--border);
-  background:linear-gradient(0deg,rgba(24,69,200,.07) 0%,transparent 100%);
+  background:var(--dark2);
+  border-top:2px solid var(--border-b);
   padding:36px 0 28px;
 }
-.footer-inner{text-align:center}
+.footer-inner{text-align:center;background:var(--dark2)}
 .footer-logo{font-family:'Poppins',sans-serif;font-size:clamp(18px,4vw,26px);font-weight:800;margin-bottom:6px;letter-spacing:-.4px}
 .footer-logo .fo{color:#fff}
 .footer-logo .fb{color:#fff}
@@ -303,6 +307,38 @@ footer{
 .footer-powered{font-size:11px;color:var(--muted)}
 .footer-powered strong{color:var(--orange);font-weight:600}
 
+/* ── VIDEO SECTION ───────────────────────────────────── */
+.video-section{
+  background:var(--card);
+  border:1px solid var(--border-b);
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:24px;
+  box-shadow:0 8px 32px rgba(24,69,200,.2);
+}
+.video-section-hdr{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;
+}
+.video-section-ico{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--orange),var(--orange-lt));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+  box-shadow:0 4px 14px var(--orange-glow);
+}
+.video-section-ttl{
+  font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:#fff;
+}
+.video-section-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.video-wrap{
+  position:relative;width:100%;border-radius:12px;overflow:hidden;
+  background:#000;
+}
+.video-wrap video{
+  width:100%;display:block;max-height:460px;
+  border-radius:12px;outline:none;
+}
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media(max-width:1023px){
   .cat-grid{grid-template-columns:repeat(2,1fr)}
@@ -350,7 +386,7 @@ footer{
       </div>
       <div class="header-brand">
         <div class="header-name">AKURACY <span class="accent">CREATOR</span><span class="accent-ai">AI</span> PACK</div>
-        <div class="header-sub">Facebook &amp; Instagram Edition · 260+ Prompts</div>
+        <div class="header-sub">Facebook &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; LinkedIn &nbsp;·&nbsp; YouTube</div>
       </div>
       <div class="hdr-badge">✦ Pro Edition</div>
     </div>
@@ -375,7 +411,7 @@ footer{
   <div class="kb-info">
     <div class="kb-tag">✦ Your AI Guide</div>
     <div class="kb-name">KING BRIGHT</div>
-    <div class="kb-role">AI Literacy Coach &amp; Content Marketer</div>
+    <div class="kb-role">AI Literacy Coach and Content Marketer</div>
     <div class="kb-bio">King Bright is a creative AI tutor and content marketer. He's the author of THE SALESMAN'S LANGUAGE and founder of AKURACY DIGITAL HUB. He helps businesses, individuals, and entrepreneurs level up their game with Artificial Intelligence to enable them to stay afloat in the digital space.</div>
     <a class="wa-btn" href="https://whatsapp.com/channel/0029Vb5sBMaATRSu7HQ3KG2S" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -386,19 +422,36 @@ footer{
       Follow on Facebook
     </a>
     <div class="kb-stats">
-      <div class="kb-stat"><div class="kb-stat-n">260+</div><div class="kb-stat-l">Prompts</div></div>
-      <div class="kb-stat"><div class="kb-stat-n">16</div><div class="kb-stat-l">Categories</div></div>
+      <div class="kb-stat"><div class="kb-stat-n">330+</div><div class="kb-stat-l">Prompts</div></div>
+      <div class="kb-stat"><div class="kb-stat-n">18</div><div class="kb-stat-l">Categories</div></div>
       <div class="kb-stat"><div class="kb-stat-n">∞</div><div class="kb-stat-l">Ideas</div></div>
     </div>
+  </div>
+</div>
+
+<!-- ═══ VIDEO SECTION ════════════════════════════════════ -->
+<div class="video-section">
+  <div class="video-section-hdr">
+    <div class="video-section-ico">🎬</div>
+    <div>
+      <div class="video-section-ttl">Watch: Introduction by King Bright</div>
+      <div class="video-section-sub">Learn how to get the best results from this prompt pack</div>
+    </div>
+  </div>
+  <div class="video-wrap">
+    <video controls controlsList="nodownload" preload="metadata">
+      <source src="akuracy.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 </div>
 
 <!-- ═══ HOME VIEW ════════════════════════════════════════ -->
 <div id="homeView">
   <div class="stats-bar">
-    <div class="sb-item"><div class="sb-num">260+</div><div class="sb-lbl">Total Prompts</div></div>
+    <div class="sb-item"><div class="sb-num">300+</div><div class="sb-lbl">Total Prompts</div></div>
     <div class="sb-item"><div class="sb-num">16</div><div class="sb-lbl">Categories</div></div>
-    <div class="sb-item"><div class="sb-num">2</div><div class="sb-lbl">Platforms</div></div>
+    <div class="sb-item"><div class="sb-num">4</div><div class="sb-lbl">Platforms</div></div>
     <div class="sb-item"><div class="sb-num">∞</div><div class="sb-lbl">Ideas</div></div>
   </div>
   <div class="how-box">
@@ -433,7 +486,7 @@ footer{
   <div class="page">
     <div class="footer-inner">
       <div class="footer-logo">AKURACY <span class="fo">CREATOR</span><span class="fl-ai">AI</span> PACK</div>
-      <div class="footer-tag">Facebook &amp; Instagram Edition · Professional Prompt Pack</div>
+      <div class="footer-tag">Facebook, Instagram, LinkedIn &amp; YouTube · Professional Prompt Pack</div>
 
       <div class="footer-powered">Powered by <strong>Akuracy Digital Hub</strong> &nbsp;·&nbsp; Created by King Bright</div>
     </div>
@@ -856,6 +909,72 @@ const DATA = [
       {n:'YouTube / Reel Thumbnail Concept',t:'Describe the perfect thumbnail concept for a YouTube video or Instagram Reel about [topic]. Include: the background image idea, the text overlay (title or hook, under 5 words in high-contrast color), the facial expression or body language of the subject (if shown), the color scheme that will pop in the feed, and any graphic element that adds urgency or curiosity.',tip:'💡 Your thumbnail is responsible for 80% of whether someone clicks — design it like a billboard.'},
       {n:'Instagram Grid Layout Planner',t:'Plan a 9-post Instagram grid layout for a brand in the [your niche] space. Describe each post\'s visual type (photo / graphic / Reel cover / text-only / pattern), the color or mood, and how together they create a cohesive and attractive profile view when seen as a 3x3 grid. My brand colors are [your colors].',tip:'💡 A planned grid layout makes your profile look like a premium brand rather than a random feed.'},
       {n:'Visual Brand Voice Guide',t:'Write a visual brand voice guide for my Instagram and Facebook presence. Define: 5 words that describe my visual style, the photography do\'s and don\'ts, the typography style (bold vs elegant, etc.), the color usage rules (primary / accent / background), and 3 types of images that are always on-brand vs 3 that are always off-brand. My brand is [describe it].',tip:'💡 A visual brand voice guide is the single most important tool for maintaining consistency as you scale.'},
+    ]
+  },
+  {
+    id:'linkedin', icon:'💼', title:'LinkedIn', desc:'Professional content that builds authority and generates leads on LinkedIn',
+    prompts:[
+      {n:'LinkedIn Scroll-Stopping Hook',t:'Write 10 powerful opening lines for a LinkedIn post about [your topic]. Each hook should be bold, direct, and make a professional stop scrolling. Use formats like a bold statement, a counterintuitive insight, a surprising statistic, or a short story opener. My audience is [describe your LinkedIn audience]. Keep each hook under 15 words.',tip:'💡 LinkedIn\'s algorithm rewards posts where people click "see more" — a great hook is non-negotiable.'},
+      {n:'LinkedIn Thought Leadership Post',t:'Write a LinkedIn thought leadership post positioning me as an expert in [your niche]. Share a non-obvious insight or contrarian opinion about [topic] that challenges conventional wisdom in my industry. Back it with a brief personal experience or data point. Keep it under 250 words. Tone: confident, direct, professional but human.',tip:'💡 Thought leadership posts get shared by peers — your best organic reach driver on LinkedIn.'},
+      {n:'LinkedIn Personal Story Post',t:'Write a LinkedIn post that tells a personal professional story about [a challenge, failure, lesson, or milestone] in my career or business. Start in the middle of the action. Build to a key insight. End with one practical takeaway for my audience. Keep it authentic and human — not like a press release.',tip:'💡 Personal stories on LinkedIn outperform informational posts because they feel rare and real.'},
+      {n:'LinkedIn Carousel Content Planner',t:'Plan a 10-slide LinkedIn carousel about [topic] for [your audience]. For each slide write: the slide title (under 6 words), the key content point (2–3 bullet ideas), and the visual style suggestion. Slide 1 must hook. Slide 10 must have a strong CTA. Make the overall carousel feel like a mini-masterclass.',tip:'💡 LinkedIn carousels (documents) get 3x more reach than regular posts — use them weekly.'},
+      {n:'LinkedIn Connection Request Message',t:'Write 5 personalised LinkedIn connection request messages to send to [type of professional: potential client / industry peer / collaborator / mentor]. Each message should feel genuine, reference something specific about them, explain why I want to connect, and be under 300 characters. My role is [your role]. My goal is [your goal].',tip:'💡 Personalised connection requests get accepted at 5x the rate of blank requests.'},
+      {n:'LinkedIn Profile Headline Writer',t:'Write 8 LinkedIn headline options for a [your role] in the [your niche] space. Each headline should clearly state who I help, what I help them achieve, and include a keyword-rich hook. My key skills are [list 2–3]. My target audience is [describe them]. Keep each headline under 220 characters.',tip:'💡 Your LinkedIn headline appears in search results and connection requests — make every word count.'},
+      {n:'LinkedIn About Section Writer',t:'Write a compelling LinkedIn About section for a [your role] in the [your niche] space. Structure: 1 attention-grabbing opening line → who I help and how → my unique approach or story → key results or credentials → a clear CTA (visit website / DM me / book a call). Keep it under 300 words. First-person, conversational tone.',tip:'💡 Your About section is your LinkedIn sales page — most visitors read it before deciding to connect.'},
+      {n:'LinkedIn Article Outline',t:'Create a detailed outline for a long-form LinkedIn article about [topic] targeting [your audience]. Include: a compelling title (with SEO keywords), an introduction hook, 4–6 main sections with subheadings, 2–3 key points per section, and a conclusion with a CTA. The article should position me as an authority and be 800–1200 words.',tip:'💡 LinkedIn articles rank on Google — they give you SEO benefit beyond the platform itself.'},
+      {n:'LinkedIn Poll Creator',t:'Write 6 LinkedIn poll ideas for a professional in the [your niche] space. For each poll: the question, all 4 answer options, and a 1–2 sentence post to go with it that frames the poll as a genuine question — not a lead capture trick. Make each poll genuinely interesting to debate.',tip:'💡 LinkedIn polls get 5x more impressions than standard posts — great for weekly engagement spikes.'},
+      {n:'LinkedIn Comment Strategy',t:'I want to grow my LinkedIn visibility by commenting strategically. Write 8 high-value comment templates I can use on posts by [industry leaders / potential clients / peers] in the [your niche] space. Each comment should add genuine insight, ask a thoughtful question, or share a contrasting perspective. Under 100 words each. My role: [your role].',tip:'💡 A great comment on a viral post can bring hundreds of profile views in 24 hours.'},
+      {n:'LinkedIn Lead Generation Post',t:'Write a LinkedIn post designed to generate inbound leads for [your product/service]. Do NOT make it sound like an ad. Lead with a compelling insight or result. Naturally position [your offer] as the solution. End with a soft CTA like "DM me [keyword]" or "Comment [word] below". Target audience: [describe them]. Under 200 words.',tip:'💡 Soft CTA lead gen posts ("Comment X for the guide") convert 4x better than hard sales posts on LinkedIn.'},
+      {n:'LinkedIn Engagement Post',t:'Write 3 LinkedIn posts specifically designed to generate comments, reposts, and saves from professionals in the [your niche] space. Each post should spark a professional debate, ask a thought-provoking question, or share a polarising but defensible opinion. Include a specific engagement prompt at the end of each.',tip:'💡 LinkedIn\'s algorithm measures "dwell time" — posts that make people think or debate perform best.'},
+      {n:'LinkedIn Company Page Post',t:'Write a LinkedIn Company Page post for [company name] in the [industry] space. The post should [choose: announce a milestone / share a company insight / highlight a team member / promote a product or service / share an industry trend]. Keep it professional yet human. End with a CTA to follow the page or visit the website.',tip:'💡 Company pages that post consistently grow follower count 7x faster than inactive ones.'},
+      {n:'LinkedIn Achievement Post',t:'Write a LinkedIn post celebrating [a personal or professional achievement: promotion, award, business milestone, certification, launch]. Make it feel grateful and grounded — not boastful. Share what the achievement represents, who helped you get there, and what it means for the people you serve. End with a forward-looking statement.',tip:'💡 Achievement posts that credit others get 3x more engagement than self-congratulatory ones.'},
+      {n:'LinkedIn Industry Insight Post',t:'Write a LinkedIn post sharing a key insight or trend I have noticed in the [your industry] space. The insight is: [describe what you have observed]. Explain why it matters, what it means for my audience, and what they should do about it. Use a "Here\'s what I\'m seeing…" or "This shift is happening…" frame. Under 200 words.',tip:'💡 Industry insight posts position you as a forward-thinking expert — the fastest credibility builder on LinkedIn.'},
+      {n:'LinkedIn Lesson Learned Post',t:'Write a LinkedIn post sharing a hard lesson I learned from [a professional mistake, failed project, or difficult experience]. Structure: what happened (briefly) → what went wrong → the real lesson → how it changed my approach. Be specific and honest — not vague. End with one actionable takeaway for the reader.',tip:'💡 Vulnerability paired with a practical lesson is the highest-engagement content formula on LinkedIn.'},
+      {n:'LinkedIn Newsletter Post',t:'Write a LinkedIn Newsletter issue about [topic] for [your audience]. Include: a compelling subject line (under 50 characters), a brief personal intro (3–4 sentences), 3 main content sections with subheadings, a "quick tip" or "resource of the week" section, and a CTA. Keep the total length under 600 words. Tone: expert but conversational.',tip:'💡 LinkedIn Newsletter subscribers get notified directly — it\'s email marketing inside LinkedIn for free.'},
+      {n:'LinkedIn Cold Outreach Message',t:'Write 5 LinkedIn cold outreach message templates to send to [potential clients / collaborators / investors] in the [your niche] space. Each message should: open with something specific about them, offer a clear and immediate value, make a low-pressure ask (a 15-min call / feedback / a resource), and be under 150 words. Avoid all generic opener phrases.',tip:'💡 The best LinkedIn cold messages reference something specific the person posted or achieved recently.'},
+      {n:'LinkedIn Event Promotion Post',t:'Write a LinkedIn post promoting an upcoming [webinar / workshop / conference / networking event / online course launch]. Include: what the event is, who it is for, what attendees will gain (3 specific outcomes), the date and time, and a clear registration CTA. Make it feel exclusive and professionally valuable — not spammy.',tip:'💡 LinkedIn event posts with a direct registration link get 60% more sign-ups than posts with a link in comments.'},
+      {n:'LinkedIn Video Script',t:'Write a 60–90 second LinkedIn video script about [topic] for [your audience]. Structure: bold opening statement (5 sec) → the problem or insight (15 sec) → 3 key points (45 sec) → strong closing CTA (10 sec). Write as spoken words — short sentences, confident tone, professional but not stiff. My role: [your role].',tip:'💡 LinkedIn native video gets 5x more reach than external video links — always upload directly.'},
+      {n:'LinkedIn Hashtag Strategy',t:'Build a LinkedIn hashtag strategy for a [your role] in the [your niche] space. Provide: 15 relevant hashtags in 3 tiers — 5 large (100K+ followers), 5 medium (10K–100K), and 5 niche-specific (under 10K). Explain which to use per post type and how many hashtags LinkedIn currently rewards per post.',tip:'💡 LinkedIn hashtags work differently to Instagram — fewer, more targeted tags outperform large stacks.'},
+      {n:'LinkedIn Case Study Post',t:'Write a LinkedIn case study post about a client or project result. Structure: Client situation before → The problem they faced → What we did together → The specific measurable result → One quote or reaction → CTA for others facing the same problem. Keep it under 250 words. Use real-sounding specifics even if anonymised.',tip:'💡 LinkedIn case studies generate 10x more DMs than any other post type — they show proof, not just potential.'},
+      {n:'LinkedIn Hiring Post',t:'Write a LinkedIn post announcing an open role at [company/brand] for [job title]. Make it exciting and human — not a boring job listing copy-paste. Lead with the exciting mission or opportunity, describe the ideal candidate in human terms (not just qualifications), outline 3 key things they will do or gain, and include the application link or DM CTA.',tip:'💡 Hiring posts written like a story get 8x more qualified applicants than standard job listings.'},
+      {n:'LinkedIn Collaboration Post',t:'Write a LinkedIn post announcing a new collaboration, partnership, or joint project with [partner name / company / individual]. Explain: what we are building together, why this partnership makes sense, what it means for our shared audience, and what is coming next. Tag the partner naturally. Make it feel like an exciting co-announcement.',tip:'💡 Collaboration posts get shared by both audiences — instant double reach with zero ad spend.'},
+      {n:'LinkedIn Weekly Content Plan',t:'Create a 4-week LinkedIn content plan for a [your role] in the [your niche] space. For each week assign a content theme. For each day (Mon–Fri) specify: the post format (text / carousel / poll / video / article), the topic, and the primary goal (build authority / generate leads / grow network / drive engagement). Posting frequency: [X per week].',tip:'💡 A consistent LinkedIn content schedule compounds over time — most creators give up before week 4.'},
+      {n:'LinkedIn Profile Optimisation Audit',t:'Audit and rewrite the key sections of my LinkedIn profile. My current details: Name: [name], Headline: [current headline], About: [current about section], Role: [your role], Target audience: [describe them], Key achievement: [one big result]. Rewrite: the headline, the first 3 lines of the About section, and suggest 3 skills to feature. Make all changes keyword-rich and audience-focused.',tip:'💡 An optimised LinkedIn profile converts profile visitors to connection requests at 3x the rate of a generic one.'},
+      {n:'LinkedIn Repost with Commentary',t:'I want to repost this LinkedIn content from another creator and add my own expert commentary to it: [describe or paste the original post]. Write a 3–5 sentence commentary that adds a new angle, disagrees respectfully, or extends the idea with my own experience. My perspective as a [your role]: [briefly describe your take].',tip:'💡 Reposting with commentary shows intellectual engagement and exposes you to the original poster\'s network.'},
+      {n:'LinkedIn "Day in the Life" Post',t:'Write a LinkedIn "day in the life" post for a [your role] that shows what a typical workday actually looks like — including the unglamorous parts. Structure it as a timeline (7am, 9am, 12pm, 3pm, 6pm). Make it relatable, slightly humorous, and end with a genuine reflection or lesson from the day.',tip:'💡 Day-in-the-life posts humanise professionals and attract clients who want to work with real people, not polished brands.'},
+      {n:'LinkedIn Controversial Take Post',t:'Write a LinkedIn post sharing a controversial but well-reasoned professional opinion about [a topic, trend, or common practice in your niche]. State the opinion boldly in the first line. Explain the reasoning in 3–4 short paragraphs. Acknowledge the opposing view fairly. End with an open question to drive debate. Under 200 words.',tip:'💡 Controversial but thoughtful posts get saved and shared by people who agree — and argued with by people who don\'t. Both boost reach.'},
+      {n:'LinkedIn "What I Wish I Knew" Post',t:'Write a LinkedIn post sharing [5–7] things I wish I knew when I started [your career / business / niche journey]. For each point: the lesson in one bold line + a 2-sentence explanation. Open with a hook like "I wasted 2 years learning what I could have learned in 2 weeks." Make every point genuinely useful and specific to [your niche].',tip:'💡 "What I wish I knew" posts appeal to beginners and get shared by mentors to their followers — viral potential is high.'},
+    ]
+  },
+  {
+    id:'youtube', icon:'▶️', title:'YouTube', desc:'Thumbnails, titles, descriptions, keywords, hashtags & scripts that grow your channel',
+    prompts:[
+      {n:'YouTube Thumbnail Concept Generator',t:'Generate 5 creative YouTube thumbnail concepts for a video about [your video topic]. For each concept describe: the background (color, image, or scene), the text overlay (under 5 bold words), the facial expression or visual element that creates curiosity or emotion, and the color scheme that will pop in the YouTube feed. My channel niche is [your niche] and target audience is [describe them].',tip:'💡 Your thumbnail and title together decide 90% of your click-through rate — never skip this step.'},
+      {n:'YouTube A/B Title Writer',t:'Write 10 YouTube video title variations for a video about [your topic]. Include a mix of: curiosity-driven titles, number-based titles, "how to" titles, controversial or bold titles, and emotional titles. Each title should be under 60 characters, include a primary keyword naturally, and make someone want to click immediately. My niche: [your niche].',tip:'💡 Test 2 titles per video using YouTube\'s A/B title feature — the right title can 3x your views overnight.'},
+      {n:'YouTube Video Description Writer',t:'Write a full YouTube video description for a video titled "[your video title]" about [your topic]. Include: a hook paragraph (2–3 sentences summarising why this video matters), a detailed paragraph expanding on what viewers will learn, timestamps for 5–6 chapters, 3 links to related videos or resources, a call-to-action to subscribe and comment, and a branded sign-off. Target keywords: [list 3–5 keywords].',tip:'💡 A keyword-rich description helps YouTube understand your video and rank it in search — write at least 200 words.'},
+      {n:'YouTube Tags & Keywords Generator',t:'Generate the ideal YouTube tags for a video about [your topic] in the [your niche] space. Provide: 5 exact-match keyword tags, 10 broad-match related tags, 5 long-tail question-based tags (e.g. "how to..."), and 5 channel-branded tags. Explain which tags are highest priority and why. Target audience searching for: [describe what they search for].',tip:'💡 YouTube tags are less powerful than titles and descriptions but still help the algorithm find related content to suggest your video alongside.'},
+      {n:'YouTube Hashtag Strategy',t:'Create a YouTube hashtag strategy for a video about [your topic]. Provide: 3 broad hashtags (over 1M uses), 5 niche-specific hashtags (10K–500K uses), and 2 branded or channel-specific hashtags. Explain where to place them (title, description, or both) and the maximum number YouTube recommends per video. My channel: [describe your channel].',tip:'💡 YouTube displays the first 3 hashtags from your description above the video title — make those 3 count.'},
+      {n:'YouTube Channel About Section',t:'Write a compelling YouTube channel About section for a channel called [channel name] in the [your niche] space. Include: a one-line hook describing who the channel is for, what type of content is uploaded and how often, the unique value viewers get, a brief personal introduction from the creator, and a CTA to subscribe. Keep it under 250 words. Use natural keywords for YouTube search.',tip:'💡 Your About section is indexed by YouTube search — include the keywords your ideal viewer would search for.'},
+      {n:'YouTube Shorts Script',t:'Write a punchy 30–60 second YouTube Shorts script about [your topic]. Structure: Hook (first 3 seconds — bold statement or surprising fact) → Core value or story (20–40 seconds) → CTA (last 5 seconds — subscribe, comment a word, or follow). Write as natural spoken words. No fluff. Deliver ONE key idea brilliantly. My niche: [your niche].',tip:'💡 YouTube Shorts that hook in the first 2 seconds and loop naturally get pushed by the algorithm the most.'},
+      {n:'YouTube Video Hook & Intro Script',t:'Write 5 different 30-second video intro scripts for a YouTube video about [your topic]. Each intro should: grab attention in the first sentence, clearly state what the viewer will gain by watching, build curiosity or tension, and transition smoothly into the body of the video. Avoid starting with "Hey guys, welcome back." Make each one feel fresh and original.',tip:'💡 You lose 40% of viewers in the first 30 seconds — your intro is the most important part of your video.'},
+      {n:'YouTube End Screen CTA Script',t:'Write 5 different 20-second end screen scripts for a YouTube video in the [your niche] space. Each script should: thank the viewer naturally, recommend the next video to watch (describe it as [your next video topic]), ask them to subscribe with a specific reason why ("subscribe if you want to [specific benefit]"), and include one additional CTA (comment, join community, download freebie). Keep each one energetic but brief.',tip:'💡 A personalised end screen recommendation that links to your most relevant video increases session time and channel growth significantly.'},
+      {n:'YouTube Community Post Writer',t:'Write 5 different YouTube Community tab posts for a channel in the [your niche] space. Include a mix of: a poll post, an image caption post, a behind-the-scenes text post, a "new video" announcement post, and an engagement question post. Each should feel conversational and reward loyal subscribers. Keep each under 150 words.',tip:'💡 YouTube Community posts appear in subscribers\' feeds and notifications — use them at least 3 times per week to stay top of mind.'},
+      {n:'YouTube Playlist Description Writer',t:'Write descriptions for 3 YouTube playlists for a channel about [your niche]. For each playlist: the playlist name (keyword-rich), a 3–4 sentence description explaining what the playlist covers, who it is for, and what they will learn or experience. End each with a CTA to subscribe. Include natural keywords that viewers would search. Playlist topics: [list 3 topics].',tip:'💡 Playlist descriptions are indexed by YouTube search — they help your content appear when people search for series-based content.'},
+      {n:'YouTube Video Chapter Planner',t:'Plan the chapters (timestamps) for a [10/15/20/30]-minute YouTube video about [your topic]. For each chapter: the timestamp, the chapter title (under 5 words, keyword-rich), and a 1-sentence description of what is covered. Structure the chapters to create a natural viewing journey that keeps people watching to the end. My video outline is: [briefly describe your video content].',tip:'💡 Videos with chapters get displayed differently in search results — chapters appear as mini-previews that increase clicks.'},
+      {n:'YouTube SEO Optimizer',t:'Fully optimise this YouTube video for search. Video topic: [your topic]. Target audience: [describe them]. Provide: 1) The ideal SEO-optimised title (under 60 chars with primary keyword near the start), 2) The first 150 characters of the description (the most important for search), 3) 15 tags in priority order, 4) 3 hashtags for the description, 5) The ideal category to select, and 6) Suggested closed caption keywords to emphasise.',tip:'💡 The first 150 characters of your description appear in YouTube search results — treat them like a meta description.'},
+      {n:'YouTube Channel Trailer Script',t:'Write a 60–90 second YouTube channel trailer script for a channel called [channel name] in the [your niche] space. This trailer plays automatically for non-subscribers. Cover: who you are, who this channel is for, what problem you solve, what types of videos you make, the unique value vs other channels in your niche, and a compelling CTA to subscribe. Make every second count.',tip:'💡 Your channel trailer is the #1 tool for converting channel visitors to subscribers — update it every 6 months.'},
+      {n:'YouTube Pinned Comment Writer',t:'Write 5 pinned comment options for a YouTube video about [your topic]. Each pinned comment should: add extra value not covered in the video, ask an engagement question that makes viewers want to reply, include a soft link to a related resource or video, and feel like a genuine extension of the conversation. Keep each under 100 words.',tip:'💡 A great pinned comment can triple the comment count on a video — the algorithm sees this as strong engagement.'},
+      {n:'YouTube Video Outro Script',t:'Write a 30-second outro script for a YouTube video in the [your niche] space. The outro should: wrap up the video\'s main point in one sentence, tease the next video (topic: [your next video]), ask viewers to like and subscribe with a specific reason ("like this video if [specific benefit]"), and end with a memorable sign-off phrase that becomes your channel\'s signature. Tone: [energetic / calm / professional / friendly].',tip:'💡 A consistent outro phrase becomes part of your brand identity — your loyal viewers will expect and love it.'},
+      {n:'YouTube Collaboration Pitch Script',t:'Write a YouTube collaboration pitch message to send to [type of creator: similar-sized channel / larger channel / brand] in the [your niche] space. Include: a genuine compliment about their channel (personalise the placeholder), a clear description of who I am and my channel stats ([your channel stats]), the collaboration idea (video swap / guest appearance / joint series), the mutual benefit for both audiences, and a low-pressure next step. Under 200 words.',tip:'💡 Collaboration is the fastest organic growth strategy on YouTube — one good collab can bring thousands of new subscribers.'},
+      {n:'YouTube Shorts Caption & Hook Pack',t:'Write 10 YouTube Shorts captions and matching on-screen text hooks for short videos about [your topic] in the [your niche] space. For each: the on-screen text hook (under 8 words for the first frame), the spoken hook (first sentence of the video), and the caption with 3 relevant hashtags. Make each hook feel impossible to scroll past.',tip:'💡 The first frame of your Short needs to answer "why should I keep watching?" in under 1 second.'},
+      {n:'YouTube Content Calendar',t:'Create a 30-day YouTube content calendar for a channel in the [your niche] space posting [X videos per week] plus [X Shorts per week]. For each video: the title idea, the video format (tutorial / story / list / vlog / reaction / interview), the target keyword, and the primary goal (grow subscribers / drive traffic / build authority / monetise). Balance educational, entertaining, and promotional content.',tip:'💡 Channels that post consistently on a fixed schedule grow 4x faster because YouTube favours regular uploaders.'},
+      {n:'YouTube Video Series Planner',t:'Plan a [5 / 8 / 10]-part YouTube video series about [your topic] for [your audience]. For each episode: the episode number, the title (SEO-optimised), the key question it answers, what the viewer learns in this episode, and how it connects to the next. Include a series title, a series description (for the playlist), and a suggested upload schedule.',tip:'💡 A well-planned series keeps viewers coming back episode after episode — your best tool for subscriber loyalty.'},
+      {n:'YouTube Community Poll Ideas',t:'Write 8 YouTube Community tab poll ideas for a channel in the [your niche] space. For each poll: the question, 4 answer options, and a 1-sentence caption to accompany it. Make polls a mix of: content preference polls (to decide future videos), fun personality polls, knowledge-testing polls, and opinion polls. All should feel relevant and engaging to [your audience].',tip:'💡 Polls are the easiest way to do audience research while simultaneously boosting your community tab engagement.'},
+      {n:'YouTube Live Stream Script',t:'Write a structured script for a [30 / 60 / 90]-minute YouTube Live stream about [your topic]. Include: the opening welcome and hook (5 min), the main content or presentation sections (with timings), planned audience interaction moments (questions, polls, shoutouts), a break or segment transition at the halfway point, and a strong closing with CTA. My audience: [describe them].',tip:'💡 YouTube Lives with a structured script feel professional and hold viewers longer — longer watch time = more algorithmic push.'},
+      {n:'YouTube Monetisation Content Strategy',t:'Build a content strategy for a YouTube channel in the [your niche] space focused on maximising ad revenue and alternative income streams. Include: the ideal video length for maximum ad revenue (mid-roll ads), the best content types for high CPM advertisers in [your niche], 5 video ideas designed to attract high-value advertisers, and 3 additional monetisation angles (affiliate, sponsorship, course, merch) with specific content formats for each.',tip:'💡 Videos over 8 minutes can include mid-roll ads — these typically generate 2–3x more revenue per view than pre-rolls alone.'},
+      {n:'YouTube Thumbnail Text Generator',t:'Write the on-thumbnail text for 8 YouTube video thumbnails in the [your niche] space. Each thumbnail text should be: under 5 words, high contrast (suggest text color and background color pair), emotionally charged or curiosity-triggering, and readable at the small size YouTube displays thumbnails. Video topics: [list 8 topics or describe the video theme]. Also suggest an emoji or symbol to include on each.',tip:'💡 Thumbnail text should be readable when the thumbnail is the size of a postage stamp — if it\'s hard to read small, simplify it.'},
+      {n:'YouTube Video Title SEO Analyzer',t:'Analyze and improve these YouTube video titles for SEO and click-through rate. For each title I provide, give: 1) A score out of 10 for SEO strength and click potential, 2) The primary keyword it is targeting (or should target), 3) 2 improved versions — one optimised for search, one optimised for clicks. My titles: [paste 3–5 existing or planned titles]. My niche: [your niche].',tip:'💡 The best YouTube titles balance search intent (so YouTube ranks them) and curiosity (so humans click them).'},
+      {n:'YouTube Channel Growth Audit',t:'Audit my YouTube channel and give me a prioritised action plan to grow it. My channel details: Niche: [your niche], Subscribers: [count], Average views per video: [count], Upload frequency: [how often], Best performing video: [describe it], Biggest struggle: [describe your challenge]. Identify: 3 things I should immediately stop doing, 3 things I should start doing, and 5 specific video ideas that could break my channel out based on what is currently working in my niche.',tip:'💡 Most channels plateau because they keep doing the same things that stopped working — an honest audit breaks the cycle.'},
     ]
   },
 ];
